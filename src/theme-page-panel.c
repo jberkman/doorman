@@ -66,11 +66,11 @@ cp_applet (int num)
 	} else if(!strcmp (id, "Launcher")) {
 		char *file, *f2;
 
-		s = g_strdup_printf ("Applet_Config=/%s/base-location");
+		s = g_strdup_printf ("Applet_Config=/%s/base-location", applet);
 		file = gnome_config_get_string (s);
 		g_free (s);
 		if (file) {
-			f2 = g_strconcat ("launchers/", %s, NULL);
+			f2 = g_strconcat ("launchers/", file, NULL);
 			cp_file (f2);
 			g_free (f2);
 			g_free (file);

@@ -7,7 +7,8 @@ INCLUDES = \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
 	-DDATADIR=\""$(datadir)/doorman"\"		\
 	-DICONDIR=\""$(datadir)/pixmaps"\"		\
-	-DGTK_THEMEDIR=\""$(GTK_PREFIX)/share/themes"\"
+	-DGTK_THEMEDIR=\""$(GTK_PREFIX)/share/themes"\"	\
+	-DDESKTOP_INIT_DIR=\""$(libdir)/mc/desktop-scripts"\"
 
 bin_PROGRAMS = doorman
 
@@ -16,13 +17,15 @@ doorman_SOURCES = \
 	doorman.c		\
 	file.c			\
 	file.h			\
-	the-machine.c		\
+	mc-haX0rz.c		\
 	theme-page.c		\
 	theme-page-background.c	\
 	theme-page-desktop.c	\
 	theme-page-gtk.c	\
 	theme-page-panel.c	\
-	theme-page-sawfish.c
+	theme-page-sawfish.c	\
+	yet-another-night-at-algiers.c	\
+	you-are-not-your-cvs-commits-list.c
 
 doorman_LDADD = $(EXTRA_GNOME_LIBS) $(INTLLIBS)
 

@@ -29,6 +29,18 @@
 
 DruidData druid_data;
 
+void
+clean_desktop_1_toggled (GtkToggleButton *w, gpointer data)
+{
+	gtk_widget_set_sensitive (W ("add new icons 1"), !w->active);
+}
+
+void
+clean_desktop_2_toggled (GtkToggleButton *w, gpointer data)
+{
+	gtk_widget_set_sensitive (W ("add new icons 2"), !w->active);
+}
+
 static void
 init_canvi (void)
 {

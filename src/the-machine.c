@@ -27,10 +27,9 @@
 static char *state_title[] = {
 	N_("Welcome to GNOME 1.4"),
 	N_("Configuration"),
-	N_("Panels and Icons"),
+	N_("Reset Panel Configuration"),
 	N_("Panel Configuration"),
 	N_("Desktop Manager"),
-	N_("Desktop Icons"),
 	N_("Sawfish Theme"),
 	N_("GTK+ Theme"),
 	N_("Background Image"),
@@ -107,6 +106,7 @@ on_druid_prev_clicked (GtkWidget *w, gpointer data)
 	case DS_PANEL:
 		newstate = DS_CONFIGURATION;
 		break;
+
 	default:
 		break;
 	}
@@ -141,7 +141,22 @@ on_druid_next_clicked (GtkWidget *w, gpointer data)
 		} else if (GTK_TOGGLE_BUTTON (W ("custom config"))->active)
 			newstate = DS_PANEL;
 		break;
-			
+		
+	case DS_RESET_PANEL:
+		if (!data_loss ())
+			return;
+
+		newstate = DS_FINISHED;
+		panel_theme_page.apply_func ("ximian-default");
+		gtk_theme_page.apply_func ("ximian-default");
+		background_theme_page.apply_func ("ximian-default");
+		sawfish_theme_page.apply_func ("ximian-default");
+		desktop_theme_page.apply_func ("Nautilus");		
+
+		finish_msg = _("Your configuration has been upgraded to the new defaults.\n\n"
+			       "Click close to finish logging in to GNOME 1.4.");
+		break;
+
 	case DS_BACKGROUND:
 		if (!data_loss ())
 			return;
@@ -156,20 +171,6 @@ on_druid_next_clicked (GtkWidget *w, gpointer data)
 			       "to your selections.\n\n"
 			       "Click close to finish logging in to GNOME 1.4.");
 
-		break;
-	case DS_PANEL_ICONS:
-		if (!data_loss ())
-			return;
-
-		newstate = DS_FINISHED;
-		panel_theme_page.apply_func ("ximian-default");
-		gtk_theme_page.apply_func ("ximian-default");
-		background_theme_page.apply_func ("ximian-default");
-		sawfish_theme_page.apply_func ("ximian-default");
-		desktop_theme_page.apply_func ("Nautilus");
-
-		finish_msg = _("Your configuration has been upgraded to the new defaults.\n\n"
-			       "Click close to finish logging in to GNOME 1.4.");
 		break;
 	default:
 		break;

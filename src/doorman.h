@@ -28,10 +28,9 @@
 typedef enum {
 	DS_WELCOME,
 	DS_CONFIGURATION,
-	DS_PANEL_ICONS,
+	DS_RESET_PANEL,
 	DS_PANEL,
 	DS_DESKTOP,
-	DS_ICONS,
 	DS_SAWFISH,
 	DS_GTK,
 	DS_BACKGROUND,
@@ -100,5 +99,11 @@ void try_and_apply (ThemePage *page);
 void setup_theme_page (ThemePage *page);
 void druid_set_sensitive (gboolean prev, gboolean next, gboolean cancel);
 void druid_set_state     (DruidState state);
+
+void convert_gmc_desktop_icons (void);
+char *nautilus_get_user_directory (void);
+void druid_set_first_time_file_flag (void);
+
+void gdesktop_links_init (void);
 
 #endif /* DOORMAN_H */

@@ -277,21 +277,7 @@ Click Next below to start illin'.</label>
 
 	  <widget>
 	    <class>GtkCheckButton</class>
-	    <name>checkbutton8</name>
-	    <can_focus>True</can_focus>
-	    <label>Reset my desktop icons</label>
-	    <active>False</active>
-	    <draw_indicator>True</draw_indicator>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkCheckButton</class>
-	    <name>checkbutton9</name>
+	    <name>reset panel</name>
 	    <can_focus>True</can_focus>
 	    <label>Reset my panel and applets</label>
 	    <active>False</active>
@@ -611,89 +597,6 @@ Click Next below to start illin'.</label>
 	  <child_name>Notebook:tab</child_name>
 	  <name>label143</name>
 	  <label>desktop</label>
-	  <justify>GTK_JUSTIFY_CENTER</justify>
-	  <wrap>False</wrap>
-	  <xalign>0.5</xalign>
-	  <yalign>0.5</yalign>
-	  <xpad>0</xpad>
-	  <ypad>0</ypad>
-	</widget>
-
-	<widget>
-	  <class>GtkVBox</class>
-	  <name>vbox23</name>
-	  <border_width>4</border_width>
-	  <homogeneous>False</homogeneous>
-	  <spacing>4</spacing>
-
-	  <widget>
-	    <class>GtkLabel</class>
-	    <name>label168</name>
-	    <label>Please choose which icons you would like to have on your desktop:</label>
-	    <justify>GTK_JUSTIFY_LEFT</justify>
-	    <wrap>True</wrap>
-	    <xalign>0.5</xalign>
-	    <yalign>0.5</yalign>
-	    <xpad>0</xpad>
-	    <ypad>40</ypad>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkRadioButton</class>
-	    <name>radiobutton4</name>
-	    <can_focus>True</can_focus>
-	    <label>New default icon set</label>
-	    <active>False</active>
-	    <draw_indicator>True</draw_indicator>
-	    <group>icon_group</group>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkRadioButton</class>
-	    <name>radiobutton5</name>
-	    <can_focus>True</can_focus>
-	    <label>My Nautilus icons (if Nautilus has been run before)</label>
-	    <active>False</active>
-	    <draw_indicator>True</draw_indicator>
-	    <group>icon_group</group>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkRadioButton</class>
-	    <name>radiobutton6</name>
-	    <can_focus>True</can_focus>
-	    <label>My GMC icons</label>
-	    <active>False</active>
-	    <draw_indicator>True</draw_indicator>
-	    <group>icon_group</group>
-	    <child>
-	      <padding>0</padding>
-	      <expand>False</expand>
-	      <fill>False</fill>
-	    </child>
-	  </widget>
-	</widget>
-
-	<widget>
-	  <class>GtkLabel</class>
-	  <child_name>Notebook:tab</child_name>
-	  <name>label144</name>
-	  <label>icons 2</label>
 	  <justify>GTK_JUSTIFY_CENTER</justify>
 	  <wrap>False</wrap>
 	  <xalign>0.5</xalign>
