@@ -152,7 +152,7 @@ on_druid_cancel_clicked (GtkWidget *w, gpointer data)
 	GtkWidget *d;
 
 	d = gnome_question_dialog (
-		_("Are you sure you want to cacel\n"
+		_("Are you sure you want to cancel\n"
 		  "setting up your desktop?"), NULL, NULL);
 	if (gnome_dialog_run_and_close (GNOME_DIALOG (d)))
 		return;
