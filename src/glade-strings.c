@@ -50,5 +50,5 @@ gchar *s = N_("label151");
 gchar *s = N_("label152");
 gchar *s = N_("Use my existing background");
 gchar *s = N_("background");
-gchar *s = N_("Someone set us up your config.");
+gchar *s = N_("Someone set us up the config.");
 gchar *s = N_("done");

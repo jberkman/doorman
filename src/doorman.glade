@@ -635,7 +635,7 @@ Click Next below to start illin'.</label>
 	    <xalign>0.5</xalign>
 	    <yalign>0.5</yalign>
 	    <xpad>0</xpad>
-	    <ypad>0</ypad>
+	    <ypad>40</ypad>
 	    <child>
 	      <padding>0</padding>
 	      <expand>False</expand>
@@ -686,10 +686,6 @@ Click Next below to start illin'.</label>
 	      <expand>False</expand>
 	      <fill>False</fill>
 	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>Placeholder</class>
 	  </widget>
 	</widget>
 
@@ -1161,8 +1157,8 @@ Click Next below to start illin'.</label>
 
 	<widget>
 	  <class>GtkLabel</class>
-	  <name>label169</name>
-	  <label>Someone set us up your config.</label>
+	  <name>done label</name>
+	  <label>Someone set us up the config.</label>
 	  <justify>GTK_JUSTIFY_CENTER</justify>
 	  <wrap>False</wrap>
 	  <xalign>0.5</xalign>

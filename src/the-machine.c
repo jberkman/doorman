@@ -45,6 +45,8 @@ druid_set_sensitive (gboolean prev, gboolean next, gboolean cancel)
 	gtk_widget_set_sensitive (GET_WIDGET ("druid-cancel"), cancel);
 }
 
+static char *finish_msg;
+
 void
 druid_set_state (DruidState state)
 {
@@ -84,6 +86,9 @@ druid_set_state (DruidState state)
 		gtk_widget_hide (GET_WIDGET ("druid-next"));
 		gtk_widget_show (GET_WIDGET ("druid-finish"));
 		druid_set_sensitive (FALSE, FALSE, FALSE);
+
+		gtk_label_set_text (GTK_LABEL (W ("done label")), finish_msg);
+
 		break;
 	default:
 		break;
@@ -107,6 +112,15 @@ on_druid_prev_clicked (GtkWidget *w, gpointer data)
 	druid_set_state (newstate);
 }
 
+static gboolean 
+data_loss (void)
+{
+	GnomeDialog *d;
+	d = gnome_question_dialog_modal (_("Do you want to overwrite your old configuration now?"), NULL, W ("druid-window"));
+	return (GNOME_YES == gnome_dialog_run_and_close (d));
+
+}
+
 void
 on_druid_next_clicked (GtkWidget *w, gpointer data)
 {
@@ -120,24 +134,41 @@ on_druid_next_clicked (GtkWidget *w, gpointer data)
 	case DS_CONFIGURATION:
 		if (GTK_TOGGLE_BUTTON (W ("current config"))->active) {
 			newstate = DS_FINISHED;
-			druid_data.config = CONFIG_CURRENT;
-		} else if (GTK_TOGGLE_BUTTON (W ("custom config"))->active) {
+			finish_msg = _("Your configuration has not been changed.\n\n"
+				       "Click close to finish logging in to GNOME 1.4.");
+		
+		} else if (GTK_TOGGLE_BUTTON (W ("custom config"))->active)
 			newstate = DS_PANEL;
-			druid_data.config = CONFIG_CUSTOM;
-		} else {
-			druid_data.config = CONFIG_DEFAULT;
-		}
 		break;
 			
 	case DS_BACKGROUND:
+		if (!data_loss ())
+			return;
+		
 		try_and_apply (&panel_theme_page);
 		try_and_apply (&gtk_theme_page);
 		try_and_apply (&background_theme_page);
 		try_and_apply (&sawfish_theme_page);
 		try_and_apply (&desktop_theme_page);
+
+		finish_msg = _("Your configuration has been changed according\n"
+			       "to your selections.\n\n"
+			       "Click close to finish logging in to GNOME 1.4.");
+
 		break;
 	case DS_PANEL_ICONS:
+		if (!data_loss ())
+			return;
+
 		newstate = DS_FINISHED;
+		panel_theme_page.apply_func ("ximian-default");
+		gtk_theme_page.apply_func ("ximian-default");
+		background_theme_page.apply_func ("ximian-default");
+		sawfish_theme_page.apply_func ("ximian-default");
+		desktop_theme_page.apply_func ("Nautilus");
+
+		finish_msg = _("Your configuration has been upgraded to the new defaults.\n\n"
+			       "Click close to finish logging in to GNOME 1.4.");
 		break;
 	default:
 		break;
