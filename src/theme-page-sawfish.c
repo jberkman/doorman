@@ -21,13 +21,26 @@
 
 #include "config.h"
 #include "doorman.h"
+#include "file.h"
 
 #include <gnome.h>
+
+#include <stdio.h>
 
 static void
 apply_sawfish_theme (const char *location)
 {
+	FILE *fp;
+	char *f;
 
+	f = gnome_util_prepend_user_home (".sawfish/custom");
+	mkdirs (f);
+
+	fp = fopen (f, "a");
+	fprintf (fp, "\n(custom-set-typed-variable (quote default-frame-style) (quote %s) (quote frame-style))\n", location);
+	fclose (fp);
+
+	g_free (f);
 }
 
 ThemePage sawfish_theme_page = {
