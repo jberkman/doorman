@@ -1,0 +1,8 @@
+Makefile
+.deps
+.interface.c
+.interface.h
+doorman
+.signal.c
+.signal.h
+Makefile.in

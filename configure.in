@@ -1,0 +1,65 @@
+dnl Process this file with autoconf to produce a configure script.
+
+AC_INIT(configure.in)
+AM_INIT_AUTOMAKE(doorman, 0.1)
+AM_CONFIG_HEADER(config.h)
+
+dnl Pick up the Gnome macros.
+AM_ACLOCAL_INCLUDE(macros)
+
+GNOME_INIT
+AC_ISC_POSIX
+AC_PROG_CC
+AM_PROG_CC_STDC
+AC_HEADER_STDC
+
+GNOME_COMPILE_WARNINGS
+GNOME_X_CHECKS
+
+AM_PATH_LIBGLADE(,,gnome)
+
+dnl Check for new enough gnome-libs
+CFLAGS_save=$CFLAGS
+LIBS_save=$LIBS
+CFLAGS=`gnome-config --cflags gnomeui`
+LIBS=`gnome-config --libs gnomeui`
+
+AC_CHECK_LIB(gnomeui, gnome_window_icon_set_default_from_file, ,[
+AC_MSG_ERROR(gnome-libs 1.0.60 or higher is required.)])
+
+CFLAGS=$CFLAGS_save
+LIBS=$LIBS_save
+
+dnl Add the languages which your application supports here.
+ALL_LINGUAS=""
+AM_GNU_GETTEXT
+
+dnl Set PACKAGE_LOCALE_DIR in config.h.
+if test "x${prefix}" = "xNONE"; then
+  prefix = ${ac_default_prefix}
+fi
+
+EXTRA_GNOME_CFLAGS=`gnome-config --cflags gnomeui libglade xml gdk_pixbuf gnomecanvaspixbuf`
+EXTRA_GNOME_LIBS=`gnome-config   --libs   gnomeui libglade xml gdk_pixbuf gnomecanvaspixbuf`
+AC_SUBST(EXTRA_GNOME_CFLAGS)
+AC_SUBST(EXTRA_GNOME_LIBS)
+
+AC_OUTPUT([
+Makefile
+macros/Makefile
+src/Makefile
+intl/Makefile
+po/Makefile.in
+])
+
+echo "
+
+Configuration:
+
+	CFLAGS:	${EXTRA_GNOME_CFLAGS}
+
+	LIBS:	${EXTRA_GNOME_LIBS}
+
+
+"
+

@@ -14,6 +14,12 @@
   <output_main_file>False</output_main_file>
   <output_support_files>False</output_support_files>
   <gnome_help_support>True</gnome_help_support>
+  <main_source_file>.interface.c</main_source_file>
+  <main_header_file>.interface.h</main_header_file>
+  <handler_source_file>.signal.c</handler_source_file>
+  <handler_header_file>.signal.h</handler_header_file>
+  <support_source_file>.support.c</support_source_file>
+  <support_header_file>.support.h</support_header_file>
   <output_translatable_strings>True</output_translatable_strings>
   <translatable_strings_file>glade-strings.c</translatable_strings_file>
 </project>
@@ -29,7 +35,7 @@
     <handler>delete_me</handler>
     <last_modification_time>Wed, 07 Feb 2001 21:23:59 GMT</last_modification_time>
   </signal>
-  <title>Bug Buddy</title>
+  <title>GNOME 1.4 Configuration</title>
   <type>GTK_WINDOW_TOPLEVEL</type>
   <position>GTK_WIN_POS_NONE</position>
   <modal>False</modal>
@@ -47,7 +53,7 @@
       <class>GnomeCanvas</class>
       <name>title-canvas</name>
       <width>450</width>
-      <height>48</height>
+      <height>50</height>
       <can_focus>True</can_focus>
       <signal>
 	<name>size_allocate</name>
@@ -93,7 +99,7 @@
 	<widget>
 	  <class>GnomeCanvas</class>
 	  <name>side-canvas</name>
-	  <width>68</width>
+	  <width>113</width>
 	  <height>250</height>
 	  <can_focus>True</can_focus>
 	  <signal>
@@ -178,7 +184,7 @@ Click Next below to start illin'.</label>
 	    <xalign>0.5</xalign>
 	    <yalign>0.5</yalign>
 	    <xpad>0</xpad>
-	    <ypad>0</ypad>
+	    <ypad>40</ypad>
 	    <child>
 	      <padding>0</padding>
 	      <expand>False</expand>
@@ -188,7 +194,7 @@ Click Next below to start illin'.</label>
 
 	  <widget>
 	    <class>GtkRadioButton</class>
-	    <name>radiobutton1</name>
+	    <name>use new settings</name>
 	    <can_focus>True</can_focus>
 	    <label>Use new configuration: Nautilus file manager and new themes</label>
 	    <active>True</active>
@@ -203,7 +209,7 @@ Click Next below to start illin'.</label>
 
 	  <widget>
 	    <class>GtkRadioButton</class>
-	    <name>radiobutton2</name>
+	    <name>custom config</name>
 	    <can_focus>True</can_focus>
 	    <label>Select a custom configuration</label>
 	    <active>False</active>
@@ -218,7 +224,7 @@ Click Next below to start illin'.</label>
 
 	  <widget>
 	    <class>GtkRadioButton</class>
-	    <name>radiobutton3</name>
+	    <name>current config</name>
 	    <can_focus>True</can_focus>
 	    <label>Keep my current configuration</label>
 	    <active>False</active>
@@ -246,172 +252,54 @@ Click Next below to start illin'.</label>
 	</widget>
 
 	<widget>
-	  <class>GtkTable</class>
-	  <name>table6</name>
+	  <class>GtkVBox</class>
+	  <name>vbox24</name>
 	  <border_width>8</border_width>
-	  <rows>4</rows>
-	  <columns>2</columns>
 	  <homogeneous>False</homogeneous>
-	  <row_spacing>4</row_spacing>
-	  <column_spacing>4</column_spacing>
-
-	  <widget>
-	    <class>GtkCheckButton</class>
-	    <name>checkbutton2</name>
-	    <can_focus>True</can_focus>
-	    <label>Use my existing configuration</label>
-	    <active>False</active>
-	    <draw_indicator>True</draw_indicator>
-	    <child>
-	      <left_attach>0</left_attach>
-	      <right_attach>2</right_attach>
-	      <top_attach>3</top_attach>
-	      <bottom_attach>4</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>False</yfill>
-	    </child>
-	  </widget>
-
-	  <widget>
-	    <class>GtkFrame</class>
-	    <name>frame17</name>
-	    <label_xalign>0</label_xalign>
-	    <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
-	    <child>
-	      <left_attach>0</left_attach>
-	      <right_attach>2</right_attach>
-	      <top_attach>2</top_attach>
-	      <bottom_attach>3</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>True</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>True</yfill>
-	    </child>
-
-	    <widget>
-	      <class>GtkLabel</class>
-	      <name>label152</name>
-	      <label>label152</label>
-	      <justify>GTK_JUSTIFY_CENTER</justify>
-	      <wrap>False</wrap>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkScrolledWindow</class>
-	    <name>scrolledwindow20</name>
-	    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
-	    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
-	    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
-	    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
-	    <child>
-	      <left_attach>0</left_attach>
-	      <right_attach>1</right_attach>
-	      <top_attach>1</top_attach>
-	      <bottom_attach>2</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>True</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>True</yfill>
-	    </child>
-
-	    <widget>
-	      <class>GtkCList</class>
-	      <name>clist1</name>
-	      <can_focus>True</can_focus>
-	      <columns>1</columns>
-	      <column_widths>80</column_widths>
-	      <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
-	      <show_titles>False</show_titles>
-	      <shadow_type>GTK_SHADOW_IN</shadow_type>
-
-	      <widget>
-		<class>GtkLabel</class>
-		<child_name>CList:title</child_name>
-		<name>label151</name>
-		<label>label151</label>
-		<justify>GTK_JUSTIFY_CENTER</justify>
-		<wrap>False</wrap>
-		<xalign>0.5</xalign>
-		<yalign>0.5</yalign>
-		<xpad>0</xpad>
-		<ypad>0</ypad>
-	      </widget>
-	    </widget>
-	  </widget>
-
-	  <widget>
-	    <class>GtkFrame</class>
-	    <name>frame18</name>
-	    <label_xalign>0</label_xalign>
-	    <shadow_type>GTK_SHADOW_IN</shadow_type>
-	    <child>
-	      <left_attach>1</left_attach>
-	      <right_attach>2</right_attach>
-	      <top_attach>1</top_attach>
-	      <bottom_attach>2</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>False</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>True</yfill>
-	    </child>
-
-	    <widget>
-	      <class>GtkPixmap</class>
-	      <name>pixmap1</name>
-	      <xalign>0.5</xalign>
-	      <yalign>0.5</yalign>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <build_insensitive>True</build_insensitive>
-	    </widget>
-	  </widget>
+	  <spacing>8</spacing>
 
 	  <widget>
 	    <class>GtkLabel</class>
-	    <name>label150</name>
-	    <label>label150</label>
-	    <justify>GTK_JUSTIFY_CENTER</justify>
-	    <wrap>False</wrap>
-	    <xalign>0</xalign>
+	    <name>label170</name>
+	    <label>Would you like to also reset your desktop icons and panel setup to the new defaults?</label>
+	    <justify>GTK_JUSTIFY_LEFT</justify>
+	    <wrap>True</wrap>
+	    <xalign>0.5</xalign>
 	    <yalign>0.5</yalign>
 	    <xpad>0</xpad>
-	    <ypad>0</ypad>
+	    <ypad>40</ypad>
 	    <child>
-	      <left_attach>0</left_attach>
-	      <right_attach>2</right_attach>
-	      <top_attach>0</top_attach>
-	      <bottom_attach>1</bottom_attach>
-	      <xpad>0</xpad>
-	      <ypad>0</ypad>
-	      <xexpand>True</xexpand>
-	      <yexpand>False</yexpand>
-	      <xshrink>False</xshrink>
-	      <yshrink>False</yshrink>
-	      <xfill>True</xfill>
-	      <yfill>False</yfill>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkCheckButton</class>
+	    <name>checkbutton8</name>
+	    <can_focus>True</can_focus>
+	    <label>Reset my desktop icons</label>
+	    <active>False</active>
+	    <draw_indicator>True</draw_indicator>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkCheckButton</class>
+	    <name>checkbutton9</name>
+	    <can_focus>True</can_focus>
+	    <label>Reset my panel and applets</label>
+	    <active>False</active>
+	    <draw_indicator>True</draw_indicator>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
 	    </child>
 	  </widget>
 	</widget>
