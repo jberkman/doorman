@@ -542,10 +542,12 @@ Click Next below to start illin'.</label>
 	    </widget>
 
 	    <widget>
-	      <class>GtkFrame</class>
-	      <name>frame29</name>
-	      <label_xalign>0</label_xalign>
-	      <shadow_type>GTK_SHADOW_IN</shadow_type>
+	      <class>GtkScrolledWindow</class>
+	      <name>scrolledwindow31</name>
+	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 	      <child>
 		<padding>0</padding>
 		<expand>True</expand>
@@ -553,8 +555,14 @@ Click Next below to start illin'.</label>
 	      </child>
 
 	      <widget>
-		<class>GnomePixmap</class>
-		<name>desktop pixmap</name>
+		<class>GtkViewport</class>
+		<name>viewport2</name>
+		<shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>desktop pixmap</name>
+		</widget>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -772,10 +780,12 @@ Click Next below to start illin'.</label>
 	    </widget>
 
 	    <widget>
-	      <class>GtkFrame</class>
-	      <name>frame31</name>
-	      <label_xalign>0</label_xalign>
-	      <shadow_type>GTK_SHADOW_IN</shadow_type>
+	      <class>GtkScrolledWindow</class>
+	      <name>scrolledwindow32</name>
+	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 	      <child>
 		<padding>0</padding>
 		<expand>True</expand>
@@ -783,8 +793,14 @@ Click Next below to start illin'.</label>
 	      </child>
 
 	      <widget>
-		<class>GnomePixmap</class>
-		<name>sawfish pixmap</name>
+		<class>GtkViewport</class>
+		<name>viewport3</name>
+		<shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>sawfish pixmap</name>
+		</widget>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -915,10 +931,12 @@ Click Next below to start illin'.</label>
 	    </widget>
 
 	    <widget>
-	      <class>GtkFrame</class>
-	      <name>frame33</name>
-	      <label_xalign>0</label_xalign>
-	      <shadow_type>GTK_SHADOW_IN</shadow_type>
+	      <class>GtkScrolledWindow</class>
+	      <name>scrolledwindow33</name>
+	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 	      <child>
 		<padding>0</padding>
 		<expand>True</expand>
@@ -926,8 +944,14 @@ Click Next below to start illin'.</label>
 	      </child>
 
 	      <widget>
-		<class>GnomePixmap</class>
-		<name>gtk pixmap</name>
+		<class>GtkViewport</class>
+		<name>viewport4</name>
+		<shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>gtk pixmap</name>
+		</widget>
 	      </widget>
 	    </widget>
 	  </widget>
@@ -1058,10 +1082,12 @@ Click Next below to start illin'.</label>
 	    </widget>
 
 	    <widget>
-	      <class>GtkFrame</class>
-	      <name>frame35</name>
-	      <label_xalign>0</label_xalign>
-	      <shadow_type>GTK_SHADOW_IN</shadow_type>
+	      <class>GtkScrolledWindow</class>
+	      <name>scrolledwindow34</name>
+	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
 	      <child>
 		<padding>0</padding>
 		<expand>True</expand>
@@ -1069,8 +1095,14 @@ Click Next below to start illin'.</label>
 	      </child>
 
 	      <widget>
-		<class>GnomePixmap</class>
-		<name>background pixmap</name>
+		<class>GtkViewport</class>
+		<name>viewport5</name>
+		<shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>background pixmap</name>
+		</widget>
 	      </widget>
 	    </widget>
 	  </widget>

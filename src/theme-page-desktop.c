@@ -28,15 +28,17 @@
 static void
 apply_desktop_theme (const char *location)
 {
-
+	gnome_config_set_string ("/session-options/Options/CurrentSession", location);
+	gnome_config_sync ();
 }
 
 ThemePage desktop_theme_page = {
-	N_("Choose a desktop configuration for your desktop"),
-	N_("The desktop does some stuff."),
-	{ { "Ximian GNOME 1.4 default",
-	  "ximian-default",
-	  "desktop/ximian-default.png" }
+	N_("Choose a desktop manager for your desktop."),
+	N_("The desktop manager can place icons on your desktop, and is also a file manager"),
+	{ 
+		{ "Nautilus", "Nautilus", "desktop/nautilus.png" },
+		{ "GMC",      "GMC",      "desktop/gmc.png" },
+		{ "None",     "None",     "desktop/none.png" }
 	},
 	apply_desktop_theme,
 	"desktop label",

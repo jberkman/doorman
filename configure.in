@@ -41,8 +41,11 @@ fi
 
 EXTRA_GNOME_CFLAGS=`gnome-config --cflags gnomeui libglade xml gdk_pixbuf gnomecanvaspixbuf`
 EXTRA_GNOME_LIBS=`gnome-config   --libs   gnomeui libglade xml gdk_pixbuf gnomecanvaspixbuf`
+GTK_PREFIX=`gtk-config --prefix`
+
 AC_SUBST(EXTRA_GNOME_CFLAGS)
 AC_SUBST(EXTRA_GNOME_LIBS)
+AC_SUBST(GTK_PREFIX)
 
 AC_OUTPUT([
 Makefile
