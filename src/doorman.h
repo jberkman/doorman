@@ -1,9 +1,7 @@
-/* bug-buddy bug submitting program
- *
- * Copyright (C) 2000 Jacob Berkman
+/* 
  * Copyright 2001 Ximian, Inc.
  *
- * Author:  Jacob Berkman  <jacob@bug-buddy.org>
+ * Author:  Jacob Berkman  <jacob@ximian.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,6 +34,7 @@ typedef enum {
 	DS_ICONS,
 	DS_SAWFISH,
 	DS_GTK,
+	DS_BACKGROUND,
 	DS_FINISHED,
 	DS_LAST
 } DruidState;
@@ -68,25 +67,28 @@ typedef struct {
 	const char *label;
 	const char *location;
 	const char *screenshot;
-	ThemeApplyFunc apply_func;
+	const char *desc;
 } ThemeData;
 
 typedef struct {
 	const char *description;
-	ThemeData *theme_data;
 	const char *long_desc;
+	ThemeData theme_data[6];
+	ThemeApplyFunc apply_func;
+	const char *label;
+	const char *long_label;
+	const char *clist;
+	const char *pixmap;
+	const char *toggle;
+	int selected_row;
 } ThemePage;
 
 
-enum {
-	TP_PANEL,
-	TP_DESKTOP,
-	TP_SAWFISH,
-	TP_GTK,
-	TP_BACKGROUND,
-	TP_LAST
-};
-extern ThemePage theme_page[TP_LAST];
+extern ThemePage desktop_theme_page;
+extern ThemePage panel_theme_page;
+extern ThemePage background_theme_page;
+extern ThemePage sawfish_theme_page;
+extern ThemePage gtk_theme_page;
 
 
 #define GET_WIDGET(name) (glade_xml_get_widget (druid_data.xml, (name)))
@@ -95,8 +97,9 @@ extern ThemePage theme_page[TP_LAST];
 #define d(x) x
 
 
-
+void setup_theme_page (ThemePage *page);
 void druid_set_sensitive (gboolean prev, gboolean next, gboolean cancel);
 void druid_set_state     (DruidState state);
+
 
 #endif /* DOORMAN_H */

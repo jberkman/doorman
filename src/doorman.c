@@ -97,6 +97,11 @@ init_ui (void)
 	gtk_notebook_set_show_border (GTK_NOTEBOOK (w), FALSE);
 	gtk_notebook_set_show_tabs (GTK_NOTEBOOK (w), FALSE);
 
+	setup_theme_page (&panel_theme_page);
+	setup_theme_page (&gtk_theme_page);
+	setup_theme_page (&background_theme_page);
+	setup_theme_page (&sawfish_theme_page);
+	setup_theme_page (&desktop_theme_page);
 }
 
 

@@ -11,9 +11,15 @@ INCLUDES = \
 bin_PROGRAMS = doorman
 
 doorman_SOURCES = \
-	doorman.h	\
-	doorman.c	\
-	the-machine.c
+	doorman.h		\
+	doorman.c		\
+	the-machine.c		\
+	theme-page.c		\
+	theme-page-background.c	\
+	theme-page-desktop.c	\
+	theme-page-gtk.c	\
+	theme-page-panel.c	\
+	theme-page-sawfish.c
 
-doorman_LDADD =$(EXTRA_GNOME_LIBS) $(INTLLIBS)
+doorman_LDADD = $(EXTRA_GNOME_LIBS) $(INTLLIBS)
 
