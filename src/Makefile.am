@@ -17,7 +17,7 @@ doorman_SOURCES = \
 	doorman.c		\
 	file.c			\
 	file.h			\
-	mc-haX0rz.c		\
+	the-machine.c		\
 	theme-page.c		\
 	theme-page-background.c	\
 	theme-page-desktop.c	\
