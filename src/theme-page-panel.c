@@ -63,8 +63,7 @@ cp_applet (int num)
 		char *file = g_strdup_printf ("%s_Extern", applet);
 		cp_file (file);
 		g_free (file);
-	} else
-		g_error ("unknown type: %s\n", id);
+	}
 	
  freebird:
 	g_free (applet);
@@ -101,9 +100,9 @@ apply_panel_theme (const char *location)
 ThemePage panel_theme_page = {
 	N_("Choose a panel configuration for your desktop"),
 	N_("The panel does some stuff."),
-	{ { "Ximian GNOME 1.4 default",
-	    "ximian-default",
-	    "panel/ximian-default.png" }
+	{ 
+		{ "Ximian GNOME 1.4 default",    "ximian-default",    "panel/ximian-default.png" },
+		{ "Windows[TM] Style",           "windows",           "panel/windows.png" },		  
 	},
 	apply_panel_theme,
 	"panel label",
