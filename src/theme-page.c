@@ -24,6 +24,8 @@
 
 #include <gnome.h>
 
+static gboolean live = TRUE;
+
 static void
 add_theme (GtkCList *clist, ThemePage *page, ThemeData *theme_data)
 {
@@ -43,7 +45,8 @@ row_select (GtkCList *clist, gint row, gint col, GdkEvent *event, gpointer data)
 
 	g_print ("select!!\n");
 
-	druid_set_sensitive (TRUE, TRUE, TRUE);
+	if (live)
+		druid_set_sensitive (TRUE, TRUE, TRUE);
 	page->selected_row = row;
 
 	theme_data = gtk_clist_get_row_data (clist, row);
@@ -110,6 +113,10 @@ setup_theme_page (ThemePage *page)
 
 	for (i=0; i<6 && page->theme_data[i].label; i++)
 		add_theme (clist, page, &page->theme_data[i]);
+
+	live = FALSE;
+	gtk_clist_select_row (clist, 0, 0);
+	live = TRUE;
 
 	gtk_clist_thaw (clist);
 
