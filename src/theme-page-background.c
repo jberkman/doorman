@@ -19,6 +19,8 @@
  */
 
 
+#define G_LOG_DOMAIN "background"
+
 #include "config.h"
 #include "doorman.h"
 
@@ -27,7 +29,21 @@
 static void
 apply_background_theme (const char *location)
 {
+	char *s;
+	g_message ("location: %s", location);
 
+	s = g_strdup_printf (ICONDIR"/Wallpapers/%s-1024x768.png", location);
+
+	gnome_config_push_prefix ("/Background/Default/");
+	
+	gnome_config_set_bool ("Enabled", TRUE);
+	gnome_config_set_string ("wallpaper", s);
+	gnome_config_set_int ("wallpaperAlign", 2);
+
+	gnome_config_pop_prefix ();
+	gnome_config_sync ();
+
+	g_free (s);
 }
 
 ThemePage background_theme_page = {

@@ -96,10 +96,9 @@ extern ThemePage gtk_theme_page;
 
 #define d(x) x
 
-
+void try_and_apply (ThemePage *page);
 void setup_theme_page (ThemePage *page);
 void druid_set_sensitive (gboolean prev, gboolean next, gboolean cancel);
 void druid_set_state     (DruidState state);
-
 
 #endif /* DOORMAN_H */

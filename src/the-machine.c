@@ -129,6 +129,13 @@ on_druid_next_clicked (GtkWidget *w, gpointer data)
 		}
 		break;
 			
+	case DS_BACKGROUND:
+		try_and_apply (&panel_theme_page);
+		try_and_apply (&gtk_theme_page);
+		try_and_apply (&background_theme_page);
+		try_and_apply (&sawfish_theme_page);
+		try_and_apply (&desktop_theme_page);
+		break;
 	case DS_PANEL_ICONS:
 		newstate = DS_FINISHED;
 		break;

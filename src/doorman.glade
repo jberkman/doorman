@@ -444,7 +444,7 @@ Click Next below to start illin'.</label>
 	    <class>GtkCheckButton</class>
 	    <name>panel toggle</name>
 	    <can_focus>True</can_focus>
-	    <label>Use my existing configuration</label>
+	    <label>Use my existing panel configuration</label>
 	    <active>False</active>
 	    <draw_indicator>True</draw_indicator>
 	    <child>
@@ -587,7 +587,7 @@ Click Next below to start illin'.</label>
 	    <class>GtkCheckButton</class>
 	    <name>desktop toggle</name>
 	    <can_focus>True</can_focus>
-	    <label>Use my existing configuration</label>
+	    <label>Use my existing desktop manager</label>
 	    <active>False</active>
 	    <draw_indicator>True</draw_indicator>
 	    <child>
@@ -817,7 +817,7 @@ Click Next below to start illin'.</label>
 	    <class>GtkCheckButton</class>
 	    <name>sawfish toggle</name>
 	    <can_focus>True</can_focus>
-	    <label>Use my existing configuration</label>
+	    <label>Use my existing sawfish theme</label>
 	    <active>False</active>
 	    <draw_indicator>True</draw_indicator>
 	    <child>
@@ -960,7 +960,7 @@ Click Next below to start illin'.</label>
 	    <class>GtkCheckButton</class>
 	    <name>gtk toggle</name>
 	    <can_focus>True</can_focus>
-	    <label>Use my existing configuration</label>
+	    <label>Use my existing GTK+ theme</label>
 	    <active>False</active>
 	    <draw_indicator>True</draw_indicator>
 	    <child>
@@ -1103,7 +1103,7 @@ Click Next below to start illin'.</label>
 	    <class>GtkCheckButton</class>
 	    <name>background toggle</name>
 	    <can_focus>True</can_focus>
-	    <label>Use my existing configuration</label>
+	    <label>Use my existing background</label>
 	    <active>False</active>
 	    <draw_indicator>True</draw_indicator>
 	    <child>

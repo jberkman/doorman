@@ -74,6 +74,16 @@ row_unselect (GtkCList *clist, gint row, gint col, GdkEvent *event, gpointer dat
 	page->selected_row = -1;
 }
 
+static void
+existing_toggled (GtkToggleButton *toggle, gpointer data)
+{
+	ThemePage *page = data;
+
+	gtk_widget_set_sensitive (W (page->clist), !toggle->active);
+	gtk_widget_set_sensitive (W (page->pixmap), !toggle->active);
+	druid_set_sensitive (TRUE, toggle->active || (page->selected_row > -1), TRUE);
+}
+
 void
 setup_theme_page (ThemePage *page)
 {
@@ -93,6 +103,9 @@ setup_theme_page (ThemePage *page)
 	gtk_signal_connect (GTK_OBJECT (clist), "unselect_row", 
 			    GTK_SIGNAL_FUNC (row_unselect), page);
 
+	gtk_signal_connect (GTK_OBJECT (W (page->toggle)), "toggled",
+			    GTK_SIGNAL_FUNC (existing_toggled), page);
+
 	gtk_clist_freeze (clist);
 
 	for (i=0; i<6 && page->theme_data[i].label; i++)
@@ -101,4 +114,14 @@ setup_theme_page (ThemePage *page)
 	gtk_clist_thaw (clist);
 
 	page->selected_row = -1;
+}
+
+void
+try_and_apply (ThemePage *page)
+{
+	if (GTK_TOGGLE_BUTTON (W (page->toggle))->active)
+		return;
+
+	g_assert (page->selected_row > -1);
+	page->apply_func (page->theme_data[page->selected_row].location);
 }
