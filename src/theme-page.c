@@ -114,13 +114,12 @@ setup_theme_page (ThemePage *page)
 	for (i=0; i<6 && page->theme_data[i].label; i++)
 		add_theme (clist, page, &page->theme_data[i]);
 
+
 	live = FALSE;
 	gtk_clist_select_row (clist, 0, 0);
 	live = TRUE;
 
 	gtk_clist_thaw (clist);
-
-	page->selected_row = -1;
 }
 
 void

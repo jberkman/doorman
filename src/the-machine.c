@@ -33,6 +33,7 @@ static char *state_title[] = {
 	N_("Desktop Icons"),
 	N_("Sawfish Theme"),
 	N_("GTK+ Theme"),
+	N_("Background Image"),
 	N_("Finished!"),
 	NULL
 };

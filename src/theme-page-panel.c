@@ -24,11 +24,78 @@
 
 #include <gnome.h>
 
+#include "file.h"
+
+static char *to, *from;
+
+static void
+cp_file (const char *file)
+{
+	char *s, *ss;
+
+	s = g_concat_dir_and_file (from, file);
+	ss = g_concat_dir_and_file (to, file);
+
+	g_message ("cp: %s => %s\n", s, ss);
+	cp (s, ss);
+
+	g_free (ss);
+	g_free (s);
+}
+
+static void
+cp_applet (int num)
+{
+	char *applet;
+	char *s, *id;
+
+	applet = g_strdup_printf ("Applet_%d", num);
+	
+	s = g_strdup_printf ("Applet_Config=/%s/id=sigh", applet);
+	
+	id = gnome_config_get_string (s);
+	g_free (s);
+
+	if (!strcmp (id, "Empty")) {
+		goto freebird;
+		return;
+	} else if (!strcmp (id, "Extern")) {
+		char *file = g_strdup_printf ("%s_Extern", applet);
+		cp_file (file);
+		g_free (file);
+	} else
+		g_error ("unknown type: %s\n", id);
+	
+ freebird:
+	g_free (applet);
+	g_free (id);
+}
 
 static void
 apply_panel_theme (const char *location)
 {
+	char *s, *ss;
+	int applets, i;
 
+	from = g_strdup_printf ("%s/panel/%s/", DATADIR, location);
+	to = gnome_util_home_file ("panel.d/default/");
+
+	mkdirs (to);
+
+	s = g_strdup_printf ("=%s", from);
+	gnome_config_push_prefix (s);
+	g_free (s);
+
+	cp_file ("panel");
+	cp_file ("Applet_Config");
+
+	applets = gnome_config_get_int ("panel=/Config/applet_count");
+	g_message ("need to copy %d applets", applets);
+
+	for (i=1; i<=applets; i++)
+		cp_applet (i);
+
+	gnome_config_pop_prefix ();
 }
 
 ThemePage panel_theme_page = {
