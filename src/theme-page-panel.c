@@ -63,6 +63,18 @@ cp_applet (int num)
 		char *file = g_strdup_printf ("%s_Extern", applet);
 		cp_file (file);
 		g_free (file);
+	} else if(!strcmp (id, "Launcher")) {
+		char *file, *f2;
+
+		s = g_strdup_printf ("Applet_Config=/%s/base-location");
+		file = gnome_config_get_string (s);
+		g_free (s);
+		if (file) {
+			f2 = g_strconcat ("launchers/", %s, NULL);
+			cp_file (f2);
+			g_free (f2);
+			g_free (file);
+		}
 	}
 	
  freebird:
@@ -80,6 +92,10 @@ apply_panel_theme (const char *location)
 	to = gnome_util_home_file ("panel.d/default/");
 
 	mkdirs (to);
+
+	s = g_concat_dir_and_file (to, "launchers");
+	mkdirs (s);
+	g_free (s);
 
 	s = g_strdup_printf ("=%s", from);
 	gnome_config_push_prefix (s);
