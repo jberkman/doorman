@@ -62,7 +62,7 @@ typedef struct {
 
 extern DruidData druid_data;
 
-typedef void (*ThemeApplyFunc) (const char *location);k
+typedef void (*ThemeApplyFunc) (const char *location);
 
 typedef struct {
 	const char *label;
